@@ -14,18 +14,26 @@
  * Может вернуть NaN, если count не  равен 1, 2, 5. 
  */
 function declinationOfNumber(count, one, two, five) {
-    switch (count) {
-        case 1: return one;
-        case 2: return two;
-        case 5: return five;
-        default: return NaN;
+    const n10 = count % 10;
+    const n100 = count % 100;
+
+
+    if (n100 > 10 && n100 < 21) {
+        return five;
     }
+    if (n10 > 1 && n10 < 5) {
+        return two;
+    }
+    if (n10 === 1) {
+        return one;
+    }
+    return five;
 }
 console.log(declinationOfNumber(1, "яблоко", "яблока", "яблок"));
 console.log(declinationOfNumber(2, "мяч", "мяча", "мячей"));
 console.log(declinationOfNumber(5, "стул", "стула", "стульев"));
-console.log(declinationOfNumber(4, "стул", "стула", "стульев"));
 
-const applesNumber = 5;
+
+const applesNumber = 1650103;
 const word = declinationOfNumber(applesNumber, "яблоко", "яблока", "яблок");
 console.log(`У меня есть ${applesNumber} ${word}.`);

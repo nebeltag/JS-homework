@@ -39,7 +39,7 @@ console.log(difference(10, 10));
  * @returns {Number} Вернет число, получившееся в результате перемножения двух 
  * переданных чисел. 
  */
-function multiple(a, b) {   
+function multiple(a, b) {
     return a * b;
 }
 console.log(multiple(40, 6));
