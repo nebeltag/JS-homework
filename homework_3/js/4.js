@@ -34,3 +34,9 @@ let pictureProduct = products.filter(function (picture) {
   }
 });
 console.log(pictureProduct);
+
+products.sort(function (a, b) {
+  return a.price - b.price
+});
+
+console.log(products); 
