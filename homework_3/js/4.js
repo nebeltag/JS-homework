@@ -27,16 +27,21 @@ const products = [
   },
 ];
 
-let pictureProduct = products.filter(function (picture) {
-
-  if (typeof picture.photos !== "undefined" && picture.photos.length != 0) {
-    return picture;
-  }
+const pictureProduct = products.filter((picture) => {
+  return picture.photos && picture.photos.length != 0;
 });
+
+// const pictureProduct = products.filter((product) => {
+//   return "photos" in product && product.photos.length != 0;
+// });
+
+// const pictureProduct = products.filter(product =>
+//   product.photos?.length > 0);
+
 console.log(pictureProduct);
 
-products.sort(function (a, b) {
-  return a.price - b.price
+products.sort((a, b) => {
+  return a.price - b.price;
 });
 
 console.log(products); 
