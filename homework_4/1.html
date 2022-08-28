@@ -24,32 +24,32 @@
 
     //Product ES5
 
-    // function Product(productName, productPrice) {
-    //   this.productName = productName;
-    //   this.productPrice = productPrice;
-    // }
+    function ProductES5(productName, productPrice) {
+      this.productName = productName;
+      this.productPrice = productPrice;
+    }
 
 
-    // Product.prototype.make25Discount = function () {
-    //   return this.productPrice * .75;
-    // };
+    ProductES5.prototype.make25Discount = function () {
+      return this.productPrice * .75;
+    };
 
-    // Product.prototype.info = function () {
-    //   console.log(`Продукт: ${this.productName}.\
-    //   Цена за 1 кг.: ${this.productPrice}р.\
-    //   Цена со скидкой: ${product1.make25Discount()}р.`);
-    // };
+    ProductES5.prototype.showES5 = function () {
+      console.log(`Продукт: ${this.productName}.\
+      Цена за 1 кг.: ${this.productPrice}р.\
+      Цена со скидкой: ${product1.make25Discount()}р.`);
+    };
 
-    // const product1 = new Product(`картофель`, 1);
-    // const product2 = new Product(`капуста`, 2);
-    // const product3 = new Product(`помидор`, 1.5);
+    const product1 = new ProductES5(`картофель`, 1);
+    const product2 = new ProductES5(`капуста`, 2);
+    const product3 = new ProductES5(`помидор`, 1.5);
 
-    // product1.info();
+    product1.showES5();
 
 
     //Product ES6
 
-    class Product {
+    class ProductES6 {
       constructor(productName, productPrice) {
         this.productName = productName;
         this.productPrice = productPrice;
@@ -57,15 +57,15 @@
       make25Discount() {
         return this.productPrice * .75;
       }
-      info() {
+      showES6() {
         console.log(`Продукт: ${this.productName}.\
       Цена за 1 кг.: ${this.productPrice}р.\
-      Цена со скидкой: ${product1.make25Discount()}р.`);
+      Цена со скидкой: ${product4.make25Discount()}р.`);
       }
     }
 
-    const product1 = new Product(`картофель`, 1);
-    product1.info();
+    const product4 = new ProductES6(`картофель`, 1);
+    product4.infoES6();
 
 
   </script>

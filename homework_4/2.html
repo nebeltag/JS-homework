@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Обязательное задание.
 
 Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
@@ -47,10 +49,105 @@
 что-нибудь пропустить.
 4. Если непонятно условие - задайте вопрос.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
-</script>
+    // Post ES5
+
+
+
+    function PostES5(postAuthor, postText) {
+      let date = new Date();
+      this.date = date;
+      this.postAuthor = postAuthor;
+      this.postText = postText;
+    }
+
+
+    PostES5.prototype.editES5 = function (postEdit) {
+      return this.postText = postEdit;
+    }
+
+
+    PostES5.prototype.showES5 = function () {
+      console.log(`Author: ${this.postAuthor},\
+      Message text: ${this.postText},\
+      Time:${this.date}`);
+    }
+
+    const post1 = new PostES5(`Maxim`, `Hello, Pavel!`);
+
+
+    post1.showES5();
+    post1.editES5(`How are you?`);
+    post1.showES5();
+
+
+    function HighlightedPostES5(postAuthor, postText, highlighted) {
+      PostES5.call(this, postAuthor, postText);
+      this.highlighted = highlighted;
+      this.highlighted = false;
+    }
+
+    HighlightedPostES5.prototype = Object.create(PostES5.prototype);
+    HighlightedPostES5.prototype.constructor = HighlightedPostES5;
+
+    HighlightedPostES5.prototype.makeTextHighlightedES5 = function () {
+      this.highlighted = true;
+    }
+
+    const highlightedPostES5_1 = new HighlightedPostES5(`Maxim`, `Hello, Pavel!`);
+
+    highlightedPostES5_1.makeTextHighlightedES5();
+
+    //----------------------------------------------------------------------------
+
+    //Post ES6
+
+    class PostES6 {
+      constructor(postAuthor, postText) {
+        let date = new Date();
+        this.date = date;
+        this.postAuthor = postAuthor;
+        this.postText = postText;
+      }
+
+      editES6(postEdit) {
+        return this.postText = postEdit;
+      }
+
+      showES6() {
+        console.log(`Author: ${this.postAuthor},\
+      Message text: ${this.postText},\
+      Time:${this.date}`);
+      }
+    }
+
+    const post1ES6 = new PostES6(`Maxim`, `Hello, Pavel!`);
+
+
+    post1ES6.showES6();
+    post1ES6.editES6(`How are you?`);
+    post1ES6.showES6();
+
+    class HighlightedPostES6 extends PostES6 {
+      constructor(postAuthor, postText, highlighted) {
+        super(postAuthor, postText);
+        this.highlighted = highlighted;
+        this.highlighted = false;
+      }
+
+      makeTextHighlightedES6() {
+        this.highlighted = true;
+      }
+    }
+
+    const highlightedPostES6_1 = new HighlightedPostES6(`Maxim`, `Hello, Pavel!`);
+
+    highlightedPostES6_1.makeTextHighlightedES6();
+
+
+  </script>
 </body>
+
 </html>
