@@ -56,49 +56,49 @@
 
 
 
-    function PostES5(postAuthor, postText) {
-      let date = new Date();
-      this.date = date;
-      this.postAuthor = postAuthor;
-      this.postText = postText;
-    }
+    // function PostES5(postAuthor, postText) {
+    //   this.date = new Date();
+    //   this.postAuthor = postAuthor;
+    //   this.postText = postText;
+    // }
 
 
-    PostES5.prototype.editES5 = function (postEdit) {
-      return this.postText = postEdit;
-    }
+    // PostES5.prototype.editES5 = function (postEdit) {
+    //   this.date = new Date();
+    //   this.postText = postEdit;
+    // }
 
 
-    PostES5.prototype.showES5 = function () {
-      console.log(`Author: ${this.postAuthor},\
-      Message text: ${this.postText},\
-      Time:${this.date}`);
-    }
+    // PostES5.prototype.showES5 = function () {
+    //   console.log(`Author: ${this.postAuthor},\
+    //   Message text: ${this.postText},\
+    //   Time:${this.date}`);
+    // }
 
-    const post1 = new PostES5(`Maxim`, `Hello, Pavel!`);
-
-
-    post1.showES5();
-    post1.editES5(`How are you?`);
-    post1.showES5();
+    // const post1 = new PostES5(`Maxim`, `Hello, Pavel!`);
 
 
-    function HighlightedPostES5(postAuthor, postText, highlighted) {
-      PostES5.call(this, postAuthor, postText);
-      this.highlighted = highlighted;
-      this.highlighted = false;
-    }
+    // post1.showES5();
+    // post1.editES5(`How are you?`);
+    // post1.showES5();
 
-    HighlightedPostES5.prototype = Object.create(PostES5.prototype);
-    HighlightedPostES5.prototype.constructor = HighlightedPostES5;
 
-    HighlightedPostES5.prototype.makeTextHighlightedES5 = function () {
-      this.highlighted = true;
-    }
+    // function AttachedPostES5(postAuthor, postText) {
+    //   PostES5.call(this, postAuthor, postText);
+    //   this.highlighted = false;
+    // }
 
-    const highlightedPostES5_1 = new HighlightedPostES5(`Maxim`, `Hello, Pavel!`);
+    // AttachedPostES5.prototype = Object.create(PostES5.prototype);
+    // AttachedPostES5.prototype.constructor = AttachedPostES5;
 
-    highlightedPostES5_1.makeTextHighlightedES5();
+    // AttachedPostES5.prototype.makeTextHighlightedES5 = function () {
+    //   this.date = new Date();
+    //   this.highlighted = true;
+    // }
+
+    // const highlightedPostES5_1 = new AttachedPostES5(`Maxim`, `Hello, Pavel!`);
+
+    // highlightedPostES5_1.makeTextHighlightedES5();
 
     //----------------------------------------------------------------------------
 
@@ -106,14 +106,14 @@
 
     class PostES6 {
       constructor(postAuthor, postText) {
-        let date = new Date();
-        this.date = date;
+        this.date = new Date();
         this.postAuthor = postAuthor;
         this.postText = postText;
       }
 
       editES6(postEdit) {
-        return this.postText = postEdit;
+        this.postText = postEdit;
+        this.date = new Date();
       }
 
       showES6() {
@@ -130,21 +130,22 @@
     post1ES6.editES6(`How are you?`);
     post1ES6.showES6();
 
-    class HighlightedPostES6 extends PostES6 {
-      constructor(postAuthor, postText, highlighted) {
-        super(postAuthor, postText);
-        this.highlighted = highlighted;
-        this.highlighted = false;
-      }
+    class AttachedPostES6 extends PostES6 {
+      highlighted = false;
+      // constructor(postAuthor, postText) {
+      //   super(postAuthor, postText);
+      //   this.highlighted = false;
+      // }
 
       makeTextHighlightedES6() {
         this.highlighted = true;
+        this.date = new Date();
       }
     }
 
-    const highlightedPostES6_1 = new HighlightedPostES6(`Maxim`, `Hello, Pavel!`);
+    const attachedPostES6_1 = new AttachedPostES6(`Maxim`, `Hello, Pavel!`);
 
-    highlightedPostES6_1.makeTextHighlightedES6();
+    attachedPostES6_1.makeTextHighlightedES6();
 
 
   </script>

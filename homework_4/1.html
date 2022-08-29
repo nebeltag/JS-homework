@@ -24,19 +24,19 @@
 
     //Product ES5
 
-    function ProductES5(productName, productPrice) {
-      this.productName = productName;
-      this.productPrice = productPrice;
+    function ProductES5(name, price) {
+      this.name = name;
+      this.price = price;
     }
 
 
     ProductES5.prototype.make25Discount = function () {
-      return this.productPrice * .75;
+      return this.price * .75;
     };
 
     ProductES5.prototype.showES5 = function () {
-      console.log(`Продукт: ${this.productName}.\
-      Цена за 1 кг.: ${this.productPrice}р.\
+      console.log(`Продукт: ${this.name}.\
+      Цена за 1 кг.: ${this.price}р.\
       Цена со скидкой: ${product1.make25Discount()}р.`);
     };
 
@@ -50,16 +50,16 @@
     //Product ES6
 
     class ProductES6 {
-      constructor(productName, productPrice) {
-        this.productName = productName;
-        this.productPrice = productPrice;
+      constructor(name, price) {
+        this.name = name;
+        this.price = price;
       }
       make25Discount() {
-        return this.productPrice * .75;
+        return this.price * .75;
       }
       showES6() {
-        console.log(`Продукт: ${this.productName}.\
-      Цена за 1 кг.: ${this.productPrice}р.\
+        console.log(`Продукт: ${this.name}.\
+      Цена за 1 кг.: ${this.price}р.\
       Цена со скидкой: ${product4.make25Discount()}р.`);
       }
     }
