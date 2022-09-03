@@ -56,8 +56,10 @@
     элементе с классом "card-body" и вывести полученную коллекцию в консоль.
      */
 
-    const parentEl = document.querySelector(".card-body");
-    console.log(parentEl.querySelectorAll(".card-link"));
+    // const parentEl = document.querySelector(".card-body");
+    // console.log(parentEl.querySelectorAll(".card-link"));
+
+    console.log(document.querySelectorAll(".card-body .card-link"));
 
     /*
     4. Найти первый попавшийся элемент на странице у которого есть атрибут
@@ -66,12 +68,14 @@
 
     console.log(document.querySelector(`[data-number="50"]`));
 
+
     /*
     5. Выведите содержимое тега title в консоль.
      */
 
-    const titleEl = document.querySelector(`title`);
-    console.log(titleEl.innerText);
+    // const titleEl = document.querySelector(`title`);
+    // console.log(titleEl.innerText);
+    console.log(document.title);
 
     /*
     6. Получите элемент с классом "card-title" и выведите его родительский узел
@@ -94,7 +98,7 @@
     /*
     8. Удалите тег h6 на странице.
      */
-    document.querySelector(`h6`).remove(`h6`);
+    document.querySelector(`h6`).remove();
 
   </script>
 </body>

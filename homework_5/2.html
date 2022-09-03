@@ -64,7 +64,8 @@
     // const dropdownEl = document.querySelector(`div.dropdown`);
     // dropdownEl.insertAdjacentHTML("afterend", `<a href="#">link</a>`);    
 
-    document.querySelector(`div.dropdown`).insertAdjacentHTML("afterend", `<a href="#">link</a>`);
+    document.querySelector(`div.dropdown`).insertAdjacentHTML("afterend",
+      `<a href="#">link</a>`);
 
     /*
     5. У элемента с id "dropdownMenuButton" замените id на "superDropdown".
@@ -80,7 +81,9 @@
     // const attributeEl = document.querySelector(`[aria-labelledby="dropdownMenuButton"]`);
     // attributeEl.setAttribute(`data-dd`, `3`);
 
-    document.querySelector(`[aria-labelledby="dropdownMenuButton"]`).setAttribute(`data-dd`, `3`);
+    // document.querySelector(`[aria-labelledby="dropdownMenuButton"]`).setAttribute(`data-dd`, `3`);
+    document.querySelector(`[aria-labelledby="dropdownMenuButton"]`).dataset.dd = '3';
+
 
     /*
     7. Удалите атрибут type у элемента с классом "dropdown-toggle".
@@ -98,7 +101,7 @@
     const attributes = elements.attributes;
     for (const element of attributes) {
       console.log(`Атрибут "${element.name}" содержит значение "${element.value}"`);
-    };
+    }
 
 
 
