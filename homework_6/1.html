@@ -61,12 +61,17 @@
     "Добавлено" и кнопка должна стать неактивной.
      */
 
-    document.querySelectorAll(`button`).forEach((element) => {
+    const product = document.querySelectorAll(`.product`);
+    product.forEach((element) => {
       addEventListener(`click`, event => {
+        if (event.target.tagName !== `BUTTON`) {
+          return;
+        }
         event.target.innerText = `Добавлено`;
-        event.preventDefault();
+        event.target.setAttribute('disabled', `true`);
       });
     });
+
 
 
     /*
@@ -78,12 +83,28 @@
     должен правильно работать код из 3-го задания.
      */
 
+    const productEl = document.querySelector(`.product:nth-child(3)`);
+    // console.log(productEl);
+    const productElClone = productEl.cloneNode(true);
+    // console.log(productElClone);
+    productEl.insertAdjacentElement("afterend", productElClone);
+    productElClone.querySelector(`img`)
+      .setAttribute(`src`, `https://picsum.photos/id/1080/200/300`);
+    productElClone.querySelector(`.productName`).textContent = "Товар 4";
+    productEl.remove();
+
 
     /*
     5. По истечении 2 секунд с момента открытия страницы первый товар должен быть
     удален из html.
      */
-
+    const firstProduct = document.querySelector(`.product:nth-child(1)`);
+    const removeFirstProduct = () => {
+      firstProduct.remove();
+    };
+    window.addEventListener("load", () => {
+      setTimeout(removeFirstProduct, 2000);
+    });
 
   </script>
 </body>
