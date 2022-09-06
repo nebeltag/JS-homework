@@ -69,9 +69,9 @@
     также должен меняться.
     */
 
-    document.getElementById("from").addEventListener(`input`, event => {
-      document.querySelector(`span`).textContent = (event.target.value);
-    });
+    const spanEl = document.querySelector(`span`);
+    document.getElementById("from").addEventListener(`input`,
+      event => spanEl.textContent = (event.target.value));
 
 
     /*
@@ -83,6 +83,7 @@
     const messageEl = document.querySelector(`.message`);
     document.querySelector(`.messageBtn`).addEventListener(`click`, event => {
       messageEl.classList.add(`animate__animated`, `animate__fadeInLeftBig`);
+      messageEl.style.visibility = 'visible';
     });
 
     /*
@@ -97,8 +98,8 @@
     Если поле было чем-либо заполнено, подсветку (класс error) необходимо убрать.
      */
     const inputEl = document.querySelectorAll(`form input,select`);
-
-    document.querySelector(`form`).addEventListener(`submit`, event => {
+    const formEl = document.querySelector(`form`);
+    formEl.addEventListener(`submit`, event => {
       inputEl.forEach((elem) => {
         if (elem.value === ``) {
           event.preventDefault();
@@ -107,14 +108,17 @@
       });
     });
 
-    document.querySelector(`form`).addEventListener(`input`, event => {
-      inputEl.forEach((elem) => {
-        if (elem.value !== ``) {
-          // event.preventDefault();
-          elem.classList.remove(`error`);
-        }
-      });
-    });
+    formEl.addEventListener(`input`, event => {
+      if (!event.target.classList.contains(`form-control`)) {
+        return;
+      }
+
+      event.target.value === ``
+        ? event.target.classList.add(`error`)
+        : event.target.classList.remove(`error`);
+    }
+    );
+
 
 
   </script>

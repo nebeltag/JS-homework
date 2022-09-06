@@ -47,8 +47,9 @@
     divEl.addEventListener(`mouseover`, event => {
       if (event.target.tagName !== `I`) {
         return;
-      } let starEl = event.target;
+      }
 
+      let starEl = event.target;
       do {
         starEl.classList.add('golden');
         starEl = starEl.previousElementSibling;
@@ -61,12 +62,13 @@
     2. Когда мы уводим курсор мыши от звезды, все поставленные классы из первого
     задания должны быть удалены.
      */
-    divEl = document.querySelector(`.stars_container`);
+    // divEl = document.querySelector(`.stars_container`);
     divEl.addEventListener(`mouseout`, event => {
       if (event.target.tagName !== `I`) {
         return;
-      } let starEl = event.target;
+      }
 
+      let starEl = event.target;
       do {
         starEl.classList.remove('golden');
         starEl = starEl.previousElementSibling;
