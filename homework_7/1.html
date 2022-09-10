@@ -92,11 +92,12 @@
 
     const textSize = document.getElementById(`inputDiv`);
     const rangeEl = document.querySelector(`input`);
-    console.log(textSize);
+    console.dir(textSize);
     rangeEl.addEventListener(`input`, () => {
 
       let changeSize = rangeEl.value * .5;
       textSize.style.fontSize = `${changeSize}px`;
+
     });
     // console.log(rangeEl.value);
 
