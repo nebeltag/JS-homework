@@ -31,12 +31,11 @@
         let arr = [...'' + n].map(Number);
         let result = arr.sort((a, b) => b - a).join(``);
         // result = result.join(``);
-        return result;
+        return Number(result);
       }
     }
 
     // descendingOrder(98789654456321123);
-
 
     console.log(descendingOrder(42145)); // 54421
     console.log(descendingOrder(145263)); // 654321

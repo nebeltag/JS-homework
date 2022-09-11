@@ -64,25 +64,44 @@
     };
 
 
-    const liEl = document.querySelectorAll(`.nav-item`);
-    console.log(liEl);
+
+    let activeEl = document.querySelector(`.active`);
+    // const liEl = document.querySelectorAll(`.nav-item`);
     const divEl = document.querySelector(`.text`);
 
-    liEl.forEach((el) => {
-      el.addEventListener(`click`, event => {
-        if (!event.target.classList.contains(`nav-link`)) {
-          return;
-        }
-        event.target.classList.add(`active`);
-        console.log(el.dataset.text);
-        for (let key in panelText) {
-          if (el.dataset.text === key) {
-            divEl.textContent = panelText[key];
-          }
-        }
-      });
-    });
+    // liEl.forEach((el) => {
+    //   el.addEventListener(`click`, event => {
+    //     if (!event.target.classList.contains(`nav-link`)) {
+    //       return;
+    //     }
+    //     activeEl.classList.remove(`active`);
+    //     event.target.classList.add(`active`);
+    //     activeEl = event.target;
+    //     // console.log(el.dataset.text);
+    //     for (let key in panelText) {
+    //       if (el.dataset.text === key) {
+    //         divEl.textContent = panelText[key];
+    //       }
+    //     }
+    //   });
+    // });
 
+    // или вместо цикла divEl.textContent = panelText[el.dataset.text];
+
+
+    const liEl = document.querySelector(`.nav-tabs`);
+
+    liEl.addEventListener('click', event => {
+      if (!event.target.classList.contains('nav-link')) {
+        return;
+      }
+
+      activeEl.classList.remove('active');
+      event.target.classList.add('active');
+      activeEl = event.target;
+
+      divEl.textContent = panelText[event.target.parentElement.dataset.text];
+    });
     /*
     2. Необходимо сделать так, чтобы при изменении input'а менялся и размер шрифта
     у элемента с id="inputDiv". Перемещение ползунка должно плавно увеличивать
