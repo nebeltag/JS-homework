@@ -92,13 +92,10 @@
 
     const textSize = document.getElementById(`inputDiv`);
     const rangeEl = document.querySelector(`input`);
-    console.dir(textSize);
+    // console.dir(textSize);
+    rangeEl.value = Number.parseInt(getComputedStyle(textSize).fontSize).toString();
     rangeEl.addEventListener(`input`, () => {
-
-      let changeSize = rangeEl.value * .5;
-      textSize.style.fontSize = `${changeSize}px`;
-
-
+      textSize.style.fontSize = `${event.target.value}px`;
     });
     // console.log(rangeEl.value);
     // console.log(window.getComputedStyle(textSize).fontSize);
